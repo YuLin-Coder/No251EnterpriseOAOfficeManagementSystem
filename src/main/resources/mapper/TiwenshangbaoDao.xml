@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.TiwenshangbaoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.TiwenshangbaoEntity" id="tiwenshangbaoMap">
+        <result property="gonghao" column="gonghao"/>
+        <result property="yuangongxingming" column="yuangongxingming"/>
+        <result property="bumen" column="bumen"/>
+        <result property="riqi" column="riqi"/>
+        <result property="tiwen" column="tiwen"/>
+        <result property="beizhu" column="beizhu"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.TiwenshangbaoVO" >
+		SELECT * FROM tiwenshangbao  tiwenshangbao         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.TiwenshangbaoVO" >
+		SELECT  tiwenshangbao.* FROM tiwenshangbao  tiwenshangbao
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.TiwenshangbaoView" >
+
+		SELECT  tiwenshangbao.* FROM tiwenshangbao  tiwenshangbao 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.TiwenshangbaoView" >
+		SELECT * FROM tiwenshangbao  tiwenshangbao <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
